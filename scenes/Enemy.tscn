@@ -10,14 +10,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "flying",
-"speed": 3.0
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "swimming",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "flying",
 "speed": 3.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
@@ -31,6 +31,7 @@ radius = 35.995
 height = 26.0048
 
 [node name="Enemy" type="RigidBody2D"]
+collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource( 7 )
 
@@ -38,6 +39,7 @@ script = ExtResource( 7 )
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 1 )
 animation = "walking"
+playing = true
 
 [node name="collision" type="CollisionShape2D" parent="."]
 rotation = 1.57325
