@@ -46,3 +46,15 @@ func _player_movement() -> Vector2:
     velocity.y += 1
     
   return velocity
+
+
+func start(position: Vector2) -> void:
+  position = position
+  self.visible = true
+  $collision.disabled = false
+
+
+func _on_Player_body_entered(_body: Node) -> void:
+  self.visible = false
+  emit_signal('hit')
+  $collision.set_deferred('disabled', true)

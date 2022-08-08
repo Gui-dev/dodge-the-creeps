@@ -11,13 +11,16 @@ func _ready() -> void:
 
 func new_game() -> void:
   score = 0
-#  $player.start($starting_position.position)
+  $Player.start($starting_position.position)
   $timer_init.start()
+  $HUD.show_message('Prepare-se')
+  $HUD.update_score(score)
 
 
 func _on_game_over() -> void:
   $score_time.stop()
   $timer_enemy.stop()
+  $HUD.game_over()
 
 
 func _on_timer_init_timeout() -> void:
@@ -27,6 +30,7 @@ func _on_timer_init_timeout() -> void:
 
 func _on_score_time_timeout() -> void:
   score += 1
+  $HUD.update_score(score)
 
 
 func _on_timer_enemy_timeout() -> void:
