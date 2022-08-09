@@ -17,8 +17,10 @@ func _process(delta: float) -> void:
   if velocity.length() > 0:
     velocity = velocity.normalized() * speed
     $animated.play()
+    $particles.emitting = true
   else:
     $animated.stop()
+    $particles.emitting = false
     
   if velocity.x != 0:
     $animated.animation = 'right'

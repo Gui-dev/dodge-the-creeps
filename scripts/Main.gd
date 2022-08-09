@@ -7,7 +7,7 @@ var score
 
 func _ready() -> void:
   randomize()
-  new_game()
+
 
 func new_game() -> void:
   score = 0
@@ -15,12 +15,15 @@ func new_game() -> void:
   $timer_init.start()
   $HUD.show_message('Prepare-se')
   $HUD.update_score(score)
+  $music.play()
 
 
 func _on_game_over() -> void:
   $score_time.stop()
   $timer_enemy.stop()
   $HUD.game_over()
+  $music.stop()
+  $sound_death.play()
 
 
 func _on_timer_init_timeout() -> void:
